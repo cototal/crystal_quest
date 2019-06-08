@@ -1,6 +1,11 @@
-# TODO: Write documentation for `CrystalQuest`
+require "kemal"
+
 module CrystalQuest
   VERSION = "0.1.0"
 
-  # TODO: Put your code here
+  get "/" do
+    render "src/views/home.ecr", "src/views/layouts/layout.ecr"
+  end
+
+  Kemal.run
 end
