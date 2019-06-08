@@ -1,0 +1,13 @@
+name: crystal_quest
+version: 0.1.0
+
+authors:
+  - your-name-here <your-email-here>
+
+targets:
+  crystal_quest:
+    main: src/crystal_quest.cr
+
+crystal: 0.29.0
+
+license: MIT
