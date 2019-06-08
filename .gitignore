@@ -1,5 +1,8 @@
-/docs/
-/lib/
-/bin/
+docs/
+lib/
+bin/
 /.shards/
 *.dwarf
+dev/
+sentry
+/crystal_quest
