@@ -1,0 +1,27 @@
+{
+    "help": [
+        ["look", "Display the current location"],
+        ["look at [something]", "Look at something in the room"],
+        ["kill [something]", "Attack something"]
+    ],
+    "inventory": {
+        "worn": ["backpack"],
+        "held": ["sword", "shield"]
+    },
+    "rooms": [
+        {
+            "name": "The Catacombs, Under the City",
+            "description": "It's dark. It smells like what you might imagine a catacombs to smell like. It's... damp? Are catacombs damp or dry? Maybe it's supposed to be dry, but it's damp and that is a sign of some water seeping in, which gives you a clue about an exit some where. Hard to tell, it's dark. Anyway, here's an abnormally large rat."
+        }
+    ],
+    "enemies": [
+        {
+            "name": "Abnormally Large Rat",
+            "attack": 5,
+            "defense": 10,
+            "health": 20,
+            "description": "Probably about the size of a cat, but distinctly rat-shaped. It wouldn't make a good pet, so you'll probably have to kill it.",
+            "loot": ["rat hide", "rat tooth", "rat tail"]
+        }
+    ]
+}

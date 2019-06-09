@@ -1,5 +1,6 @@
 require "kemal"
 require "json"
+require "./action_handler"
 
 module CrystalQuest
   VERSION = "0.1.0"
@@ -9,14 +10,17 @@ module CrystalQuest
   end
 
   sockets = [] of HTTP::WebSocket
+  action_handler = ActionHandler.new("data/game_config.json")
+  puts action_handler.errors
 
   ws "/chat" do |socket|
     sockets.push socket
 
     socket.on_message do |message|
-      puts JSON.parse(message).inspect
       sockets.each do |a_socket|
-        a_socket.send message
+        output = action_handler.execute(message)[:output]
+        result = %({"user": "Test", "message": "#{output}"})
+        a_socket.send result
       end
     end
 
