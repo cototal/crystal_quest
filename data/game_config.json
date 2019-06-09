@@ -2,7 +2,8 @@
     "help": [
         ["look", "Display the current location"],
         ["look at [something]", "Look at something in the room"],
-        ["kill [something]", "Attack something"]
+        ["kill [something]", "Attack something"],
+        ["say [something]", "Talk to the people around you"]
     ],
     "inventory": {
         "worn": ["backpack"],
@@ -16,7 +17,8 @@
     ],
     "enemies": [
         {
-            "name": "Abnormally Large Rat",
+            "name": "An Abnormally Large Rat",
+            "keys": ["rat", "large rat", "abnormal rat", "a rat"],
             "attack": 5,
             "defense": 10,
             "health": 20,

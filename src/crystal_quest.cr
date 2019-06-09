@@ -11,7 +11,6 @@ module CrystalQuest
 
   sockets = [] of HTTP::WebSocket
   action_handler = ActionHandler.new("data/game_config.json")
-  puts action_handler.errors
 
   ws "/chat" do |socket|
     sockets.push socket
