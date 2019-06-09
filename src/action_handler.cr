@@ -53,7 +53,7 @@ module CrystalQuest
       enemy = enemies_by_key[key]?
       return not_here unless enemy
       output = "You bravely attack <b>#{enemy["name"]}</b>"
-      output += "<br>It is slain!<br>But as it dissolves into nothing another appears from the darkness!"
+      output += "<br>It is slain!<br>But as it dissolves into nothing, another appears from the darkness!"
       output
     end
 
