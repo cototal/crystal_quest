@@ -1,0 +1,12 @@
+#story {
+    height: 500px;
+    overflow: scroll;
+    border: thin grey solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.text.control {
+    width: 100%;
+}
