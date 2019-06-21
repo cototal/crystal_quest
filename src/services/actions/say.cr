@@ -1,8 +1,9 @@
 require "json"
+require "html"
 require "./iaction"
 
 module CrystalQuest::Services::Actions
-  class Help
+  class Say
     include Iaction
     getter config
 
@@ -10,8 +11,7 @@ module CrystalQuest::Services::Actions
     end
 
     def output(input = [] of String)
-      return config["help"].as_a.map { |line| line.as_a.join(" - ") }.join("<br>") if config["help"]
-      "Help has not been configured."
+      HTML.escape(input[1..-1].join(" "))
     end
   end
 end

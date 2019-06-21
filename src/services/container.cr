@@ -6,7 +6,7 @@ require "./actions/*"
 module CrystalQuest
   module Services
     class Container
-      setter :action_handler, :help_action
+      setter :action_handler, :help_action, :look_action, :say_action
       getter errors : Array(String) = [] of String
       getter config : JSON::Any
 
@@ -20,11 +20,26 @@ module CrystalQuest
 
       def action_handler : ActionHandler
         @action_handler ||= ActionHandler.new(config, {
-          "help" => help_action
+          "help" => help_action,
+          "kill" => kill_action,
+          "say" => say_action,
+          "look" => look_action
         } of String => Actions::Iaction)
       end
 
-      def help_action : Actions::Iaction
+      def look_action
+        @look_action ||= Actions::Look.new(config)
+      end
+
+      def say_action
+        @say_action ||= Actions::Say.new(config)
+      end
+
+      def kill_action
+        @kill_action ||= Actions::Kill.new(config)
+      end
+
+      def help_action
         @help_action ||= Actions::Help.new(config)
       end
 
