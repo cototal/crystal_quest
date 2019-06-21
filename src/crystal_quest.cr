@@ -1,23 +1,25 @@
 require "kemal"
 require "json"
-require "./action_handler"
+require "./services/container"
 
 module CrystalQuest
   VERSION = "0.1.0"
+
+  container = Services::Container.new("data/game_config.json")
+  ah = container.action_handler
 
   get "/" do
     render "src/views/home.ecr", "src/views/layouts/layout.ecr"
   end
 
   sockets = [] of HTTP::WebSocket
-  action_handler = ActionHandler.new("data/game_config.json")
 
   ws "/chat" do |socket|
     sockets.push socket
 
     socket.on_message do |message|
       sockets.each do |a_socket|
-        output = action_handler.execute(message)[:output]
+        output = ah.execute(message)[:output]
         result = %({"user": "Test", "message": "#{output}"})
         a_socket.send result
       end
